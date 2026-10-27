@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Лаба Лікарня</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Лікарня</h1>
+
+<div class="tabs">
+<button id="btn1" onclick="showTab(1)">Відділення</button>
+  <button id="btn2" onclick="showTab(2)">Лікарі</button>
+<button id="btn3" onclick="showTab(3)" >Пацієнти</button>
+</div>
+
+<div id="tab1" class="tab">
+<button class="add" onclick="showForm(1)">Додати</button>
+<div id="form1" class="form" style="display:none">
+  <h3>Нове відділення</h3>
+  <p>Назва: <input type="text" id="depName"></p>
+  <p>Поверх: <input type="number" id="depFloor" min="1"></p>
+  <p>Завідувач: <input type="text" id="depHead"></p>
+  <p>Ліжок: <input type="number" id="depBeds" min="1"></p>
+  <p>Зайнято: <input type="number" id="depOccupied" min="0"></p>
+<p>Телефон: <input type="text" id="depPhone"></p>
+  <p>Рік відкриття: <input type="number" id="depYear"></p>
+  <button onclick="addDepartment()">Зберегти</button> <button onclick="hideForm(1)">Скасувати</button>
+</div>
+    <table id="table1" border="1"></table>
+</div>
+
+<div id="tab2" class="tab">
+<button class="add" onclick="showForm(2)">Додати</button>
+<div id="form2" class="form" style="display:none">
+<h3>Новий лікар</h3>
+<p>ПІБ: <input type="text" id="docName"></p>
+<p>Спеціальність: <input type="text" id="docSpecialty"></p>
+<p>Відділення: <select id="docDep"></select></p>
+<p>Стаж: <input type="number" id="docExp" min="0"></p>
+<p>Категорія:
+<select id="docCategory">
+<option>Вища</option>
+<option>Перша</option>
+<option>Друга</option>
+<option>Без категорії</option>
+</select></p>
+<p>Ставка: <input type="number" id="docRate" step="0.25" min="0.25" value="1"></p>
+<p>Телефон: <input type="text" id="docPhone"></p>
+<button onclick="addDoctor()">Зберегти</button> <button onclick="hideForm(2)">Скасувати</button>
+</div>
+<table id="table2" border="1"></table>
+</div>
+
+<div id="tab3" class="tab">
+  <button class="add" onclick="showForm(3)">Додати</button>
+  <div id="form3" class="form" style="display:none">
+    <h3>Новий пацієнт</h3>
+    <p>ПІБ: <input type="text" id="patName"></p>
+    <p>Дата народження: <input type="date" id="patBirth"></p>
+    <p>Стать: <select id="patGender"><option>Ч</option><option>Ж</option></select></p>
+    <p>Діагноз: <input type="text" id="patDiagnosis"></p>
+    <p>Лікар: <select id="patDoctor"></select></p>
+    <p>Палата: <input type="number" id="patWard"></p>
+    <p>Дата госпіталізації: <input type="date" id="patDate"></p>
+    <p>Страховка: <input type="checkbox" id="patInsurance"></p>
+    <button onclick="addPatient()">Зберегти</button> <button onclick="hideForm(3)">Скасувати</button>
+  </div>
+  <table id="table3" border="1"></table>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
